@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MealDetailActivity">
+    <RelativeLayout
+        android:id="@+id/Rl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@color/primary" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TÊN MÓN ĂN"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="300dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:text="Category: "
+                android:drawableLeft="@drawable/ic_category"
+                android:textColor="@color/g_black"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_categories_info"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="Category: "
+                android:visibility="invisible"
+                android:textColor="@color/g_black"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:text="Area: "
+                android:drawableLeft="@drawable/ic_area"
+                android:textColor="@color/g_black"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_Area_info"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="Area: "
+                android:visibility="invisible"
+                android:textColor="@color/g_black"/>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="280dp"
+            android:baselineAlignBottom="false"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_save_24"
+            app:backgroundTint="@color/primary"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|end"
+            app:tint="@color/white" />
+</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
