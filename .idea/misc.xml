@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/drawable/ic_category.xml" value="0.131" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/drawable/ic_favorite.xml" value="0.131" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/drawable/ic_home.xml" value="0.131" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.131" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/font/fonts.xml" value="0.15925925925925927" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/layout/a.xml" value="0.2609375" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/layout/activity_home.xml" value="0.18" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/layout/activity_main.xml" value="0.2609375" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/layout/fragment_categories.xml" value="0.2609375" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/layout/fragment_favorite.xml" value="0.2609375" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.2609375" />
+        <entry key="..\:/HocLapTrinh/FoodApp/app/src/main/res/menu/btm_menu.xml" value="0.1" />
+        <entry key="..\:/Lap_Trinh/Project/FoodApp/app/src/main/res/layout/fragment_categories.xml" value="0.19635416666666666" />
+        <entry key="..\:/Lap_Trinh/Project/FoodApp/app/src/main/res/layout/fragment_home.xml" value="0.19635416666666666" />
+        <entry key="..\:/Lap_Trinh/Project/FoodApp/app/src/main/res/layout/item_categories.xml" value="0.19635416666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
