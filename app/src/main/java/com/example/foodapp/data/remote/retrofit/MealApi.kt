@@ -10,7 +10,7 @@ interface MealApi {
     @GET ("random.php")
     fun getRandomMeal(): Single<RandomMealResponse>
 
-    @GET("filter.php?")
+    @GET("categories.php")
     fun getMealsByCategory() : Single<CategoryResponse>
 
 }

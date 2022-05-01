@@ -3,6 +3,7 @@ package com.example.foodapp.ui.fragment.home
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.foodapp.data.pojo.CategoryResponse
 import com.example.foodapp.data.pojo.RandomMealResponse
 import com.example.foodapp.data.remote.retrofit.MealApi
 import com.example.foodapp.data.remote.retrofit.RetrofitClient
@@ -18,6 +19,8 @@ class HomeFragmentVM (var mealResponse: MealReponsitory = MealReponsitory()
 
     var randomMealLiveData = MutableLiveData<RandomMealResponse> ()
     var errorLiveData = MutableLiveData<String>()
+    var categoryLiveData = MutableLiveData<CategoryResponse>()
+
 
 
 
@@ -43,6 +46,26 @@ class HomeFragmentVM (var mealResponse: MealReponsitory = MealReponsitory()
 
 
             })
+    }
+    fun getCatelog(){
+        mealResponse.getMealsByCategory()
+            .subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribe(object : SingleObserver<CategoryResponse>{
+                override fun onSubscribe(d: Disposable) {
+
+                }
+
+                override fun onSuccess(t: CategoryResponse) {
+                    categoryLiveData.postValue(t)
+                }
+
+                override fun onError(e: Throwable) {
+                    errorLiveData.postValue(e.message).toString()
+                }
+
+            })
+
     }
 
 

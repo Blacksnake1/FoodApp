@@ -61,6 +61,11 @@ private lateinit var binding: FragmentHomeBinding
                 vf_random_meal.addView(imageView) }
 
         })
+        viewModel.categoryLiveData.observe(viewLifecycleOwner,{
+            listCategory.addAll(it.categoryModels)
+            adapterCategory?.notifyDataSetChanged()
+
+        })
 
 
     }
