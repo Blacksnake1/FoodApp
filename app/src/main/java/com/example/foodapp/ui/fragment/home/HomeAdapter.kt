@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.pojo.CategoryModel
-import com.example.foodapp.data.pojo.CategoryResponse
+import com.example.foodapp.data.model.CategoryModel
 
 class HomeAdapter(
     var context: Context,

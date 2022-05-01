@@ -13,11 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.pojo.CategoryModel
-import com.example.foodapp.data.pojo.MealDetail
+import com.example.foodapp.data.model.CategoryModel
+import com.example.foodapp.data.model.MealDetail
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.activity.MealDetailActivity
-import com.example.foodapp.ui.fragment.categories.CategoriesFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -47,8 +46,13 @@ private lateinit var binding: FragmentHomeBinding
         super.onViewCreated(view, savedInstanceState)
         setupUi()
         setupObsever()
+        setupEvent()
 
 
+    }
+    fun setupUi() {
+        actionViewFlipper()
+        setupRcvCategory()
     }
 
     private fun setupObsever() {
@@ -69,11 +73,13 @@ private lateinit var binding: FragmentHomeBinding
 
 
     }
+    private fun setupEvent() {
+       HomeFragmentVM.
 
-    fun setupUi() {
-        actionViewFlipper()
-        setupRcvCategory()
     }
+
+
+
 
     private fun setupRcvCategory() {
         adapterCategory = HomeAdapter(requireContext(), listCategory,::onClickItemCategory )

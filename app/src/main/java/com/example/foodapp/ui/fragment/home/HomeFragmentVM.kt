@@ -3,12 +3,9 @@ package com.example.foodapp.ui.fragment.home
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.foodapp.data.pojo.CategoryResponse
-import com.example.foodapp.data.pojo.RandomMealResponse
-import com.example.foodapp.data.remote.retrofit.MealApi
-import com.example.foodapp.data.remote.retrofit.RetrofitClient
+import com.example.foodapp.data.model.CategoryResponse
+import com.example.foodapp.data.model.RandomMealResponse
 import com.example.foodapp.data.repository.MealReponsitory
-import com.example.foodapp.utils.Utils
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
@@ -20,9 +17,6 @@ class HomeFragmentVM (var mealResponse: MealReponsitory = MealReponsitory()
     var randomMealLiveData = MutableLiveData<RandomMealResponse> ()
     var errorLiveData = MutableLiveData<String>()
     var categoryLiveData = MutableLiveData<CategoryResponse>()
-
-
-
 
 
     fun getRandomMeal(){

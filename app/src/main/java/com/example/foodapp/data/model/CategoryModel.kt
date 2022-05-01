@@ -1,4 +1,4 @@
-package com.example.foodapp.data.pojo
+package com.example.foodapp.data.model
 
 import java.io.Serializable
 
