@@ -55,7 +55,8 @@ private lateinit var binding: FragmentHomeBinding
     }
 
     private fun setupEvent() {
-        HomeFragmentVM.getRandomMeal()
+        viewModel.getRandomMeal()
+        viewModel.getCatelog()
 
 
     }
