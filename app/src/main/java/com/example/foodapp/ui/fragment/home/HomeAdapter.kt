@@ -26,12 +26,12 @@ class HomeAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.item_home_categories,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_home_categories,parent,false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var itemCategory = listCategory. getOrNull(position)
+        val itemCategory = listCategory. getOrNull(position)
         itemCategory?.strCategoryThumb.let {
             Glide.with(holder.itemView).load(itemCategory?.strCategoryThumb).into(holder.img_item)
         }

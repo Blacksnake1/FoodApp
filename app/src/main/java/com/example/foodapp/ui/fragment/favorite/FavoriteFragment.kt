@@ -7,10 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.foodapp.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -39,6 +35,12 @@ class FavoriteFragment : Fragment() {
     }
 
     companion object {
+        // TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+        private const val ARG_PARAM1 = "param1"
+        private const val ARG_PARAM2 = "param2"
+
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

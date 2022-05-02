@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -15,99 +16,105 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.data.pojo.CategoryModel
-import com.example.foodapp.data.pojo.MealDetail
 import com.example.foodapp.databinding.FragmentHomeBinding
+import com.example.foodapp.ui.activity.ActivityListener
+import com.example.foodapp.ui.activity.HomeActivity
 import com.example.foodapp.ui.activity.MealDetailActivity
-import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ActivityListener {
     private val viewModel by lazy {
         ViewModelProvider(this)[HomeFragmentVM::class.java]
     }
 
-    private var listRandomMeal = ArrayList<MealDetail>()
-    private  lateinit var adapterCategory : HomeAdapter
+    private lateinit var adapterCategory: HomeAdapter
     var listCategory = ArrayList<CategoryModel>()
 
-private lateinit var binding: FragmentHomeBinding
-
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-       binding = FragmentHomeBinding.inflate(inflater,container, false)
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupUi()
+        Log.e(".....>", "onViewCreated")
+        setupUI()
+        setupObserver()
         setupEvent()
     }
 
-    override fun onResume() {
-        super.onResume()
-        setupObsever()
-    }
-
-
-    fun setupUi() {
+    private fun setupUI() {
         actionViewFlipper()
         setupRcvCategory()
+        (requireActivity() as HomeActivity).setActivityListener(this)
     }
 
-    private fun setupObsever() {
+    private fun setupObserver() {
         viewModel.randomMealLiveData.observe(viewLifecycleOwner) {
-            listRandomMeal.addAll(it.meals)
-            for (i in 0 until listRandomMeal.size) {
-                var imageView = ImageView(requireContext())
-                Glide.with(requireContext()).load(listRandomMeal[i].strMealThumb).into(imageView)
-                imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-                vf_random_meal.addView(imageView)
-                Log.d(".....>", "id ${listRandomMeal[i].idMeal} ")
+            if (binding.vfRandomMeal.isFlipping){
+                binding.vfRandomMeal.stopFlipping()
             }
 
+            it.meals.forEach { meal ->
+                val imageView = ImageView(requireContext()).apply {
+                    scaleType = ImageView.ScaleType.CENTER_CROP
+                }
+                Glide.with(requireContext()).load(meal.strMealThumb).into(imageView)
+                binding.vfRandomMeal.addView(imageView)
+                Log.e(".....>", "id ${meal.idMeal} ")
+            }
+
+            binding.vfRandomMeal.startFlipping()
         }
 
-        viewModel.categoryLiveData.observe(viewLifecycleOwner){
+        viewModel.categoryLiveData.observe(viewLifecycleOwner) {
+            Log.e(".....>", "${it.categories.size}")
             listCategory.addAll(it.categories)
             adapterCategory?.notifyDataSetChanged()
         }
-
-
     }
 
     private fun setupEvent() {
-        viewModel.getRandomMeal()
         viewModel.getCategory()
-
+        viewModel.getRandomMeal()
     }
 
     private fun actionViewFlipper() {
-        vf_random_meal.flipInterval = 5000
-        vf_random_meal.isAutoStart = true
-        val slide_in = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_right)
-        val slide_out = AnimationUtils.loadAnimation(requireContext(), R.anim.silde_out_right)
-        vf_random_meal.inAnimation = slide_in
-        vf_random_meal.outAnimation = slide_out
+        val slideIn = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_right)
+        val slideOut = AnimationUtils.loadAnimation(requireContext(), R.anim.silde_out_right)
+
+        binding.vfRandomMeal.apply {
+            flipInterval = 5000
+            inAnimation = slideIn
+            outAnimation = slideOut
+        }
     }
 
     private fun setupRcvCategory() {
-        adapterCategory = HomeAdapter(requireContext(), listCategory,::onClickItemCategory )
-        rcv_categories.layoutManager = GridLayoutManager(requireContext(),3)
-        rcv_categories.adapter = adapterCategory
+        adapterCategory = HomeAdapter(requireContext(), listCategory, ::onClickItemCategory)
+        binding.rcvCategories.apply {
+            layoutManager = GridLayoutManager(requireContext(), 3)
+            adapter = adapterCategory
+        }
     }
 
-    fun onClickItemCategory(categoryModel: CategoryModel) {
-        Toast.makeText(requireContext(),categoryModel.strCategory,Toast.LENGTH_SHORT).show()
-        var intent = Intent(requireContext(),MealDetailActivity::class.java)
-            intent.putExtra("MealDetail", categoryModel)
-            startActivity(intent)
-
+    private fun onClickItemCategory(categoryModel: CategoryModel) {
+        Toast.makeText(requireContext(), categoryModel.strCategory, Toast.LENGTH_SHORT).show()
+        val intent = Intent(requireContext(), MealDetailActivity::class.java)
+        intent.putExtra("MealDetail", categoryModel)
+        startActivity(intent)
     }
 
+    override fun onBottomTabChange(menuItem: MenuItem) {
+        if (menuItem.itemId == R.id.homeFragment ){
+            viewModel.getRandomMeal()
+        }
+    }
 }
 
 

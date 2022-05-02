@@ -13,15 +13,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class HomeFragmentVM (
     var mealResponse: MealReponsitory = MealReponsitory(),
-
 ) :ViewModel() {
 
     var randomMealLiveData = MutableLiveData<RandomMealResponse> ()
     var categoryLiveData = MutableLiveData<CategoryResponse>()
     var errorLiveData = MutableLiveData<String>()
-
-
-
 
     fun getRandomMeal(){
         mealResponse.getRandomMeal()
