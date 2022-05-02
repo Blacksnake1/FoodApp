@@ -19,8 +19,6 @@ import com.example.foodapp.data.model.MealDetail
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.activity.MealDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
-import com.example.foodapp.ui.fragment.home.HomeFragmentVM
-
 
 
 class HomeFragment : Fragment() {
@@ -73,12 +71,12 @@ private lateinit var binding: FragmentHomeBinding
             for (i in 0 until listRandomMeal.size) {
                 var imageView = ImageView(requireContext())
                 Glide.with(requireContext()).load(listRandomMeal[i].strMealThumb).into(imageView)
-                imageView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+                imageView.scaleType = ImageView.ScaleType.CENTER_CROP
                 vf_random_meal.addView(imageView) }
 
         })
         viewModel.categoryLiveData.observe(viewLifecycleOwner,{
-            listCategory.addAll(it.categoryModels)
+            listCategory.addAll(it.categories)
             adapterCategory?.notifyDataSetChanged()
 
         })
