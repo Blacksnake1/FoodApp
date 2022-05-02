@@ -1,6 +1,5 @@
 package com.example.foodapp.ui.fragment.home
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.foodapp.data.model.CategoryResponse
@@ -34,13 +33,14 @@ class HomeFragmentVM (var mealResponse: MealReponsitory = MealReponsitory()
 
                 override fun onError(e: Throwable) {
                     errorLiveData.postValue(e?.message)
-                    Log.e("homeRandom", e.message.toString())
+
 
                 }
 
 
             })
     }
+
     fun getCatelog(){
         mealResponse.getMealsByCategory()
             .subscribeOn(Schedulers.io())
@@ -61,9 +61,5 @@ class HomeFragmentVM (var mealResponse: MealReponsitory = MealReponsitory()
             })
 
     }
-
-
-
-
 
 }

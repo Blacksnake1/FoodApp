@@ -2,6 +2,7 @@ package com.example.foodapp.ui.fragment.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ import com.example.foodapp.data.model.MealDetail
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.activity.MealDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.foodapp.ui.fragment.home.HomeFragmentVM
+
 
 
 class HomeFragment : Fragment() {
@@ -50,6 +53,13 @@ private lateinit var binding: FragmentHomeBinding
 
 
     }
+
+    private fun setupEvent() {
+        HomeFragmentVM.getRandomMeal()
+
+
+    }
+
     fun setupUi() {
         actionViewFlipper()
         setupRcvCategory()
@@ -58,6 +68,7 @@ private lateinit var binding: FragmentHomeBinding
     private fun setupObsever() {
         viewModel.randomMealLiveData.observe(viewLifecycleOwner,{
             listRandomMeal.addAll(it.meals)
+            Log.d("-=-=-", "id= $listRandomMeal", )
             for (i in 0 until listRandomMeal.size) {
                 var imageView = ImageView(requireContext())
                 Glide.with(requireContext()).load(listRandomMeal[i].strMealThumb).into(imageView)
@@ -73,10 +84,7 @@ private lateinit var binding: FragmentHomeBinding
 
 
     }
-    private fun setupEvent() {
-       HomeFragmentVM.
 
-    }
 
 
 
