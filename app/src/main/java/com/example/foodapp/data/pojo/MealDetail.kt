@@ -1,5 +1,7 @@
 package com.example.foodapp.data.pojo
 
+import java.io.Serializable
+
 data class MealDetail(
     val dateModified: Any,
     val idMeal: String,
@@ -54,4 +56,4 @@ data class MealDetail(
     val strSource: String,
     val strTags: Any,
     val strYoutube: String
-)
+) : Serializable

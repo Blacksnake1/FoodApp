@@ -63,6 +63,12 @@ class HomeFragment : Fragment(), ActivityListener {
             it.meals.forEach { meal ->
                 val imageView = ImageView(requireContext()).apply {
                     scaleType = ImageView.ScaleType.CENTER_CROP
+                    setOnClickListener {
+                        val intent = Intent(requireActivity(),MealDetailActivity::class.java).apply {
+                            putExtra("a",meal)
+                        }
+                        requireActivity().startActivity(intent)
+                    }
                 }
                 Glide.with(requireContext()).load(meal.strMealThumb).into(imageView)
                 binding.vfRandomMeal.addView(imageView)
