@@ -10,7 +10,15 @@ class MealDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_detail)
+
         val mealDetail = intent.getSerializableExtra("a") as MealDetail
         Toast.makeText(this , mealDetail.strMeal ,Toast.LENGTH_SHORT).show()
     }
+
+
+
+
+
+
+
 }

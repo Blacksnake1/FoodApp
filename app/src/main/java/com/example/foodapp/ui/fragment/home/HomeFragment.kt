@@ -111,9 +111,7 @@ class HomeFragment : Fragment(), ActivityListener {
 
     private fun onClickItemCategory(categoryModel: CategoryModel) {
         Toast.makeText(requireContext(), categoryModel.strCategory, Toast.LENGTH_SHORT).show()
-        val intent = Intent(requireContext(), MealDetailActivity::class.java)
-        intent.putExtra("MealDetail", categoryModel)
-        startActivity(intent)
+
     }
 
     override fun onBottomTabChange(menuItem: MenuItem) {
