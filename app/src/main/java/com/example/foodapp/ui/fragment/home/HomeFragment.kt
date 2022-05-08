@@ -20,6 +20,7 @@ import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.activity.ActivityListener
 import com.example.foodapp.ui.activity.HomeActivity
 import com.example.foodapp.ui.activity.MealDetailActivity
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment(), ActivityListener {
@@ -56,7 +57,7 @@ class HomeFragment : Fragment(), ActivityListener {
 
     private fun setupObserver() {
         viewModel.randomMealLiveData.observe(viewLifecycleOwner) {
-            if (binding.vfRandomMeal.isFlipping){
+            if (vf_random_meal.isFlipping){
                 binding.vfRandomMeal.stopFlipping()
             }
 
