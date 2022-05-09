@@ -11,4 +11,9 @@
     <item android:title="Category"
         android:icon="@drawable/ic_category"
         android:id="@+id/categoriesFragment"/>
+
+    <item android:title="Profile"
+        android:icon="@drawable/ic_account"
+        android:id="@+id/profileFragment"/>
+
 </menu>

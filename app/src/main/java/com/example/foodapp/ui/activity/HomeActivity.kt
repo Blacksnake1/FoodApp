@@ -7,6 +7,7 @@ import com.example.foodapp.R
 import com.example.foodapp.ui.fragment.categories.CategoriesFragment
 import com.example.foodapp.ui.fragment.favorite.FavoriteFragment
 import com.example.foodapp.ui.fragment.home.HomeFragment
+import com.example.foodapp.ui.fragment.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -15,6 +16,7 @@ class HomeActivity : AppCompatActivity() {
     private val fragmentCategory = CategoriesFragment()
     private val fragmentHome = HomeFragment()
     private val fragmentFavorite = FavoriteFragment()
+    private val fragmentProfile = ProfileFragment()
     private lateinit var bottomNavigation : BottomNavigationView
     private var activeFragment: Fragment = fragmentHome
     lateinit var onActivityListener : ActivityListener
@@ -53,6 +55,12 @@ class HomeActivity : AppCompatActivity() {
                 R.id.categoriesFragment -> {
                     fragmentManager.beginTransaction().hide(activeFragment).show(fragmentCategory).commit()
                     activeFragment = fragmentCategory
+                    true
+                }
+
+                R.id.profileFragment-> {
+                    fragmentManager.beginTransaction().hide(activeFragment).show(fragmentProfile).commit()
+                    activeFragment = fragmentProfile
                     true
                 }
 

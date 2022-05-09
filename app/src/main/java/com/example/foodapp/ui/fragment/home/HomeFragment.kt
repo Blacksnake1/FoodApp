@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(), ActivityListener {
     private val viewModel by lazy {
-        ViewModelProvider(this)[HomeFragmentVM::class.java]
+        ViewModelProvider(this)[HomeVM::class.java]
     }
 
     private lateinit var adapterCategory: HomeAdapter

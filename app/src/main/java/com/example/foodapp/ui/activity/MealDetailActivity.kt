@@ -31,7 +31,7 @@ class MealDetailActivity : AppCompatActivity() {
 
     private fun setupView() {
         Glide.with(this).load(mealDetail?.strMealThumb).into(img_meal_detail)
-        collapsing_toolbar.title = mealDetail?.idMeal
+        collapsing_toolbar.title = mealDetail?.strMeal
         collapsing_toolbar.setCollapsedTitleTextColor(resources.getColor(R.color.white))
         tv_categoryInfo.text = mealDetail?.strCategory
         tv_areaInfo.text = mealDetail?.strArea
@@ -44,6 +44,8 @@ class MealDetailActivity : AppCompatActivity() {
                 watchYoutubeVideo(it)
             }
         }
+
+        img_back.setOnClickListener { onBackPressed() }
     }
 
     private fun watchYoutubeVideo(youtubeLink: String) {
