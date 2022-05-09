@@ -4,4 +4,5 @@ import android.view.MenuItem
 
 interface ActivityListener {
     fun onBottomTabChange(menuItem: MenuItem)
+
 }

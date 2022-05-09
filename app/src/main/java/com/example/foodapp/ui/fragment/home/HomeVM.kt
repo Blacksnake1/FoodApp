@@ -41,7 +41,7 @@ class HomeVM (
             })
     }
     fun getCategory() {
-        mealResponse.getMealsCategory()
+        mealResponse.getCategory()
             .subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(object : SingleObserver<CategoryResponse>{

@@ -14,7 +14,7 @@ class MealReponsitory(
 
     }
 
-    fun getMealsCategory (): Single<CategoryResponse>{
+    fun getCategory (): Single<CategoryResponse>{
         return mealRemote.getMealsCategory()
     }
 

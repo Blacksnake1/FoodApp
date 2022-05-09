@@ -13,7 +13,10 @@
         android:theme="@style/Theme.FoodApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.activity.MealDetailActivity"
+            android:name=".ui.activity.Meal.TypeMealActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.MealsDetail.MealDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.HomeActivity"

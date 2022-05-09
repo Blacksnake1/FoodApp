@@ -1,4 +1,4 @@
-package com.example.foodapp.ui.activity
+package com.example.foodapp.ui.activity.MealsDetail
 
 import android.content.Intent
 import android.net.Uri

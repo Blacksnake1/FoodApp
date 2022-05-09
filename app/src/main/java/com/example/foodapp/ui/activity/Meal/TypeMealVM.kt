@@ -1,0 +1,46 @@
+package com.example.foodapp.ui.activity.Meal
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.foodapp.data.pojo.FilterCategoryResponse
+import com.example.foodapp.data.repository.MealReponsitory
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.SingleObserver
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.schedulers.Schedulers
+
+class TypeMealVM(
+    private val typeMealResponse: MealReponsitory = MealReponsitory()
+) : ViewModel() {
+
+    var typeMealLiveData = MutableLiveData< FilterCategoryResponse>()
+    var errorLiveData    = MutableLiveData< String>()
+
+    fun getTypeMeal (category : String){
+        typeMealResponse.getMealsByCatelogy(category)
+            .subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribe(object: SingleObserver<FilterCategoryResponse>{
+                override fun onSubscribe(d: Disposable) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onSuccess(t: FilterCategoryResponse) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onError(e: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+
+            })
+
+
+
+
+    }
+
+
+
+}

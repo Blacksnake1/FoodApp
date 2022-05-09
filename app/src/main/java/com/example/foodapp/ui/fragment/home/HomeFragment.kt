@@ -1,6 +1,7 @@
 package com.example.foodapp.ui.fragment.home
 
 import android.content.Intent
+import android.content.Intent.getIntent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,7 +20,8 @@ import com.example.foodapp.data.pojo.CategoryModel
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.activity.ActivityListener
 import com.example.foodapp.ui.activity.HomeActivity
-import com.example.foodapp.ui.activity.MealDetailActivity
+import com.example.foodapp.ui.activity.Meal.TypeMealActivity
+import com.example.foodapp.ui.activity.MealsDetail.MealDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -65,7 +67,7 @@ class HomeFragment : Fragment(), ActivityListener {
                 val imageView = ImageView(requireContext()).apply {
                     scaleType = ImageView.ScaleType.CENTER_CROP
                     setOnClickListener {
-                        val intent = Intent(requireActivity(),MealDetailActivity::class.java).apply {
+                        val intent = Intent(requireActivity(), MealDetailActivity::class.java).apply {
                             putExtra("a",meal)
                         }
                         requireActivity().startActivity(intent)
@@ -112,8 +114,17 @@ class HomeFragment : Fragment(), ActivityListener {
 
     private fun onClickItemCategory(categoryModel: CategoryModel) {
         Toast.makeText(requireContext(), categoryModel.strCategory, Toast.LENGTH_SHORT).show()
+        when (categoryModel.idCategory) {
+            1 -> {
+                val intent = TypeMealActivity.getIntent(requireContext(), 1)
+                startActivity(intent)
+            }
+
+        }
 
     }
+
+
 
     override fun onBottomTabChange(menuItem: MenuItem) {
         if (menuItem.itemId == R.id.homeFragment ){
