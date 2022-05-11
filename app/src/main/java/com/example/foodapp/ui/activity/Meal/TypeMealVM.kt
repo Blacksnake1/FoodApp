@@ -13,8 +13,8 @@ class TypeMealVM(
     private val typeMealResponse: MealReponsitory = MealReponsitory()
 ) : ViewModel() {
 
-    var typeMealLiveData = MutableLiveData< FilterCategoryResponse>()
-    var errorLiveData    = MutableLiveData< String>()
+    var typeMealLiveData = MutableLiveData<FilterCategoryResponse>()
+    var errorLiveData    = MutableLiveData<String>()
 
     fun getTypeMeal (category : String){
         typeMealResponse.getMealsByCatelogy(category)
@@ -22,15 +22,16 @@ class TypeMealVM(
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe(object: SingleObserver<FilterCategoryResponse>{
                 override fun onSubscribe(d: Disposable) {
-                    TODO("Not yet implemented")
+
                 }
 
                 override fun onSuccess(t: FilterCategoryResponse) {
-                    TODO("Not yet implemented")
+                    typeMealLiveData.postValue(t)
+
                 }
 
                 override fun onError(e: Throwable) {
-                    TODO("Not yet implemented")
+                    errorLiveData.postValue(e.message)
                 }
 
 

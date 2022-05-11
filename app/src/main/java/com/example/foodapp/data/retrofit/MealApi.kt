@@ -17,7 +17,7 @@ interface MealApi {
 
     @GET("filter.php?")
     fun getMealsByCatelogy(
-        @Query("i") category :String
+        @Query("c") category :String
     ) : Single<FilterCategoryResponse>
 
 }

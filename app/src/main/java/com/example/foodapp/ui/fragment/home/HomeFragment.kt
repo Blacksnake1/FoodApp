@@ -33,6 +33,10 @@ class HomeFragment : Fragment(), ActivityListener {
     private lateinit var adapterCategory: HomeAdapter
     var listCategory = ArrayList<CategoryModel>()
 
+    companion object{
+        const val CATEGORY_NAME = "category name"
+    }
+
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -68,7 +72,7 @@ class HomeFragment : Fragment(), ActivityListener {
                     scaleType = ImageView.ScaleType.CENTER_CROP
                     setOnClickListener {
                         val intent = Intent(requireActivity(), MealDetailActivity::class.java).apply {
-                            putExtra("a",meal)
+                            putExtra("RANDOM_MEAL",meal)
                         }
                         requireActivity().startActivity(intent)
                     }
@@ -114,17 +118,12 @@ class HomeFragment : Fragment(), ActivityListener {
 
     private fun onClickItemCategory(categoryModel: CategoryModel) {
         Toast.makeText(requireContext(), categoryModel.strCategory, Toast.LENGTH_SHORT).show()
-        when (categoryModel.idCategory) {
-            1 -> {
-                val intent = TypeMealActivity.getIntent(requireContext(), 1)
-                startActivity(intent)
-            }
 
-        }
+        var intent = Intent(requireContext(),TypeMealActivity::class.java)
+        intent.putExtra(CATEGORY_NAME,categoryModel.strCategory)
+        startActivity(intent)
 
     }
-
-
 
     override fun onBottomTabChange(menuItem: MenuItem) {
         if (menuItem.itemId == R.id.homeFragment ){

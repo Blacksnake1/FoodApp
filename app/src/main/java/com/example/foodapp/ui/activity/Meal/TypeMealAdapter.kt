@@ -23,7 +23,7 @@ class TypeMealAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(context).inflate(R.layout.activity_meal_by_category,parent,false)
+        var view = LayoutInflater.from(context).inflate(R.layout.item_meal_by_category,parent,false)
         return ViewHolder(view)
     }
 

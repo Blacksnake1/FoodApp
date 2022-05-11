@@ -3,16 +3,20 @@ package com.example.foodapp.ui.activity.MealsDetail
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.data.pojo.MealDetail
+import com.example.foodapp.ui.activity.Meal.TypeMealActivity
 import kotlinx.android.synthetic.main.activity_meal_detail.*
 
 
 class MealDetailActivity : AppCompatActivity() {
     var mealDetail: MealDetail? = null
+    var meal = ""
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +29,10 @@ class MealDetailActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        mealDetail = intent.getSerializableExtra("a") as MealDetail
+        mealDetail = intent.getSerializableExtra("RANDOM_MEAL") as MealDetail
+        meal = intent.getStringExtra(TypeMealActivity.MEAL_ID).toString()
+
+
         Toast.makeText(this, mealDetail?.strMeal, Toast.LENGTH_SHORT).show()
     }
 
