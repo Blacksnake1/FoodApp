@@ -42,6 +42,7 @@ class TypeMealActivity : AppCompatActivity() {
         setupRcvMeal()
         viewModel.getTypeMeal(type)
 
+
     }
 
     private fun setupObserver() {

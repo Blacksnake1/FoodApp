@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity(tableName = "mealDetail")
+@Entity
 data class MealDetail(
     val dateModified: Any?,
     @PrimaryKey

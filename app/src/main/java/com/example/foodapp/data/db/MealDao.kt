@@ -7,7 +7,7 @@ import com.example.foodapp.data.pojo.MealDetail
 @Dao
 interface MealDao {
     @Insert ( onConflict = OnConflictStrategy.REPLACE)
-    fun insert(mealDetail: MealDetail)
+    fun upsert(mealDetail: MealDetail)
 
     @Delete
     fun delete (mealDetail: MealDetail)

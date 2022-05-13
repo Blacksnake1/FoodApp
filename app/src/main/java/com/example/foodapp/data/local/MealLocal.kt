@@ -7,8 +7,9 @@ import com.example.foodapp.data.pojo.MealDetail
 class MealLocal {
     private val mealDatabase = MealDatabase.getInstance(FoodApplication.getInstance().applicationContext)
 
+
     fun saveFavoriteMeal(meal : MealDetail){
-        mealDatabase.mealDao().insert(meal)
+        mealDatabase.mealDao().upsert(meal)
     }
 
     fun getFavoriteMeal() : MutableList<MealDetail> {

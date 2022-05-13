@@ -9,22 +9,20 @@ import com.example.foodapp.data.pojo.MealDetail
 
 @Database(entities = [MealDetail::class], version = 1)
 @TypeConverters(MealTypeConverter::class)
-
 abstract class MealDatabase : RoomDatabase() {
     abstract fun mealDao(): MealDao
 
     companion object{
         @Volatile
-        var INSTANCE : MealDatabase? = null
+        var instance : MealDatabase? = null
 
         @Synchronized
         fun getInstance(context: Context): MealDatabase{
-            if(INSTANCE == null){
-                INSTANCE = Room.databaseBuilder(context, MealDatabase::class.java, "meal.db")
-                    .fallbackToDestructiveMigration()
+            if(instance == null){
+                instance = Room.databaseBuilder(context, MealDatabase::class.java, "meal.db")
                     .build()
             }
-            return INSTANCE as MealDatabase
+            return instance as MealDatabase
         }
     }
 }

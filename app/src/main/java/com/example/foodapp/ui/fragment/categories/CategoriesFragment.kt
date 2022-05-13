@@ -30,7 +30,7 @@ class CategoriesFragment : Fragment(), ActivityListener {
     }
 
     override fun onBottomTabChange(menuItem: MenuItem) {
-        TODO("Not yet implemented")
+
     }
 
 }

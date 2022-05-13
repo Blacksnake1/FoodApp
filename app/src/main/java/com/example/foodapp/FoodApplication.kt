@@ -4,6 +4,11 @@ import android.app.Application
 
 class FoodApplication : Application() {
 
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
+    }
+
     companion object{
         @Volatile
         private var instance: FoodApplication? = null
