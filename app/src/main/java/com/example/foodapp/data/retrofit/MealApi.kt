@@ -5,6 +5,7 @@ import com.example.foodapp.data.pojo.CategoryResponse
 import com.example.foodapp.data.pojo.FilterCategoryResponse
 import com.example.foodapp.data.pojo.RandomMealResponse
 import io.reactivex.rxjava3.core.Single
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -19,5 +20,10 @@ interface MealApi {
     fun getMealsByCatelogy(
         @Query("c") category :String
     ) : Single<FilterCategoryResponse>
+
+    @GET("lookup.php?")
+    fun getMealById(
+        @Query("i") id:String
+    ): Single<RandomMealResponse>
 
 }

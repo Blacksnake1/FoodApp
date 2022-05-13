@@ -24,6 +24,7 @@ class TypeMealActivity : AppCompatActivity() {
     var type = ""
     companion object{
         const val MEAL_ID = "mealid"
+        const val FROM_CATEGORY = "category"
     }
 
 
@@ -71,7 +72,8 @@ class TypeMealActivity : AppCompatActivity() {
     private fun onClickItemMeal(filterCategoryModel: FilterCategoryModel) {
         Toast.makeText(this,filterCategoryModel.strMeal,Toast.LENGTH_SHORT).show()
         var intent = Intent(this, MealDetailActivity::class.java)
-        intent.putExtra("MEAL_ID",filterCategoryModel.idMeal)
+        intent.putExtra(MEAL_ID,filterCategoryModel.idMeal)
+        intent.putExtra(FROM_CATEGORY , true)
         startActivity(intent)
 
     }

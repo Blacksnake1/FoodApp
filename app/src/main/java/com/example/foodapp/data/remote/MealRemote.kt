@@ -23,4 +23,8 @@ class MealRemote(
         return  apiMeal.getMealsByCatelogy(category)
     }
 
+    fun getMealById(id:String) : Single<RandomMealResponse>{
+        return  apiMeal.getMealById(id)
+    }
+
 }

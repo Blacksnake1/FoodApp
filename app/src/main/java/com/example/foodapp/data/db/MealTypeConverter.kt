@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import java.util.jar.Attributes
 
 @TypeConverters
-class MealTypeConverter {
+object MealTypeConverter {
 
     @TypeConverter
     fun fromAnyToString ( attributes:Any?) : String{

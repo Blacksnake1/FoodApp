@@ -1,6 +1,5 @@
 package com.example.foodapp.data.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.Dao
 import com.example.foodapp.data.pojo.MealDetail
@@ -8,11 +7,11 @@ import com.example.foodapp.data.pojo.MealDetail
 @Dao
 interface MealDao {
     @Insert ( onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(mealDetail: MealDetail)
+    fun insert(mealDetail: MealDetail)
 
     @Delete
-    suspend fun delete (mealDetail: MealDetail)
+    fun delete (mealDetail: MealDetail)
 
     @Query ( "SELECT * FROM mealDetail ")
-    fun getAllMeal():LiveData<List<MealDetail>>
+    fun getAllMeal(): List<MealDetail>
 }

@@ -10,14 +10,15 @@ import com.bumptech.glide.Glide
 import com.example.foodapp.R
 import com.example.foodapp.data.pojo.MealDetail
 import com.example.foodapp.ui.activity.Meal.TypeMealActivity
+import com.example.foodapp.ui.activity.Meal.TypeMealActivity.Companion.FROM_CATEGORY
 import kotlinx.android.synthetic.main.activity_meal_detail.*
 
 
 class MealDetailActivity : AppCompatActivity() {
     var mealDetail: MealDetail? = null
-    var meal = ""
+    var mealID : String? = null
 
-
+    private var isFromHomeCategory = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,12 +27,13 @@ class MealDetailActivity : AppCompatActivity() {
         initData()
         setupView()
 
+
     }
 
     private fun initData() {
         mealDetail = intent.getSerializableExtra("RANDOM_MEAL") as MealDetail
-        meal = intent.getStringExtra(TypeMealActivity.MEAL_ID).toString()
-
+        mealID = intent.getStringExtra(TypeMealActivity.MEAL_ID)
+        isFromHomeCategory = intent.getBooleanExtra(FROM_CATEGORY,false)
 
         Toast.makeText(this, mealDetail?.strMeal, Toast.LENGTH_SHORT).show()
     }
