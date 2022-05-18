@@ -21,12 +21,10 @@ class TypeMealAdapter (
         var tvMeal  = itemView.findViewById<TextView>(R.id.tv_meal)
 
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(context).inflate(R.layout.item_meal_by_category,parent,false)
         return ViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var typeMeal = listMeal[position]
         Glide.with(context).load(typeMeal.strMealThumb).into(holder.imgMeal)
@@ -36,7 +34,6 @@ class TypeMealAdapter (
 
         }
     }
-
     override fun getItemCount(): Int = listMeal.size
 
 

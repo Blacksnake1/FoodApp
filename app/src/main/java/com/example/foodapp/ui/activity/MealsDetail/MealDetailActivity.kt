@@ -74,14 +74,13 @@ class MealDetailActivity : AppCompatActivity() {
 
         fb_favorite.setOnClickListener {
             isFavorite = !isFavorite
+            mealDetail?.let { it1 -> viewmodel.handleIsFavorite(isFavorite, it1) }
+            if(isFavorite){
+                Toast.makeText(this,"Favorite Saved", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this,"Favorite Unsave", Toast.LENGTH_SHORT).show()
+            }
             updateUIButtonFavorite()
-//            mealDetail?.let {
-//                if (isFavorite) {
-//                    viewmodel.saveFavoriteMeal(it)
-//                }else {
-//                    viewmodel.removeFavoriteMeal(it)
-//                }
-//            }
         }
     }
 
