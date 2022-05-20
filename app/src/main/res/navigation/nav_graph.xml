@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_categories" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.foodapp.ProfileFragment"
+        android:name="com.example.foodapp.ui.fragment.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
