@@ -58,9 +58,7 @@ class MealDetailActivity : AppCompatActivity() {
 //            isFavorite = viewmodel.isFavoriteMeal(it)
 //        }
 
-        Toast.makeText(this, mealDetail?.strMeal, Toast.LENGTH_SHORT).show()
-
-    }
+        }
 
     private fun setupView() {
         img_youtube.setOnClickListener {
