@@ -41,25 +41,25 @@ class HomeActivity : AppCompatActivity() {
             onActivityListener.onBottomTabChange(menuItem)
             when (menuItem.itemId) {
                 R.id.homeFragment -> {
-                    fragmentManager.beginTransaction().hide(activeFragment).show(fragmentHome).commit()
+                    fragmentManager.beginTransaction().remove(activeFragment).show(fragmentHome).commit()
                     activeFragment = fragmentHome
                     true
                 }
 
                 R.id.favoriteFragment -> {
-                    fragmentManager.beginTransaction().hide(activeFragment).show(fragmentFavorite).commit()
+                    fragmentManager.beginTransaction().remove(activeFragment).show(fragmentFavorite).commit()
                     activeFragment = fragmentFavorite
                     true
                 }
 
                 R.id.categoriesFragment -> {
-                    fragmentManager.beginTransaction().hide(activeFragment).show(fragmentCategory).commit()
+                    fragmentManager.beginTransaction().remove(activeFragment).show(fragmentCategory).commit()
                     activeFragment = fragmentCategory
                     true
                 }
 
                 R.id.profileFragment-> {
-                    fragmentManager.beginTransaction().hide(activeFragment).show(fragmentProfile).commit()
+                    fragmentManager.beginTransaction().remove(activeFragment).show(fragmentProfile).commit()
                     activeFragment = fragmentProfile
                     true
                 }
