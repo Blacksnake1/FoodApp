@@ -18,15 +18,15 @@ import kotlinx.coroutines.withContext
 
 class MealDetailVM(
     private val mealDetailResponse: MealReponsitory = MealReponsitory()
-): ViewModel() {
+) : ViewModel() {
     var mealDetailLiveData = MutableLiveData<RandomMealResponse>()
     var errorLiveData = MutableLiveData<String>()
 
-    fun getMealDetail (id: String ){
+    fun getMealDetail(id: String) {
         mealDetailResponse.getMealById(id)
             .subscribeOn(io())
             ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe(object: SingleObserver<RandomMealResponse>{
+            ?.subscribe(object : SingleObserver<RandomMealResponse> {
                 override fun onSubscribe(d: Disposable) {
 
                 }
@@ -43,24 +43,25 @@ class MealDetailVM(
 
     }
 
-    fun isFavoriteMeal (meal: MealDetail): Boolean {
+    fun isFavoriteMeal(meal: MealDetail): Boolean {
         viewModelScope.launch {
 
         }
-       return mealDetailResponse.getFavoriteMeal().any { it.idMeal == meal.idMeal }
+        return mealDetailResponse.getFavoriteMeal().any {
+            it.idMeal == meal.idMeal
+        }
     }
 
-    fun handleIsFavorite(isFavorite : Boolean,meal: MealDetail){
+    fun handleIsFavorite(isFavorite: Boolean, meal: MealDetail) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                if (isFavorite){
+                if (isFavorite) {
                     mealDetailResponse.saveFavoriteMeal(meal)
-                }else{
+                } else {
                     mealDetailResponse.removeFavoriteMeal(meal)
                 }
             }
         }
-
 
 
     }
