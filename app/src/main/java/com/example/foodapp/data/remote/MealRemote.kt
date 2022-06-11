@@ -1,8 +1,8 @@
 package com.example.foodapp.data.remote
 
-import com.example.foodapp.data.pojo.CategoryResponse
-import com.example.foodapp.data.pojo.FilterCategoryResponse
-import com.example.foodapp.data.pojo.RandomMealResponse
+import com.example.foodapp.data.data.CategoryResponse
+import com.example.foodapp.data.data.FilterCategoryResponse
+import com.example.foodapp.data.data.RandomMealResponse
 import com.example.foodapp.data.retrofit.MealApi
 import com.example.foodapp.data.retrofit.RetrofitClient
 import com.example.foodapp.utils.Utils

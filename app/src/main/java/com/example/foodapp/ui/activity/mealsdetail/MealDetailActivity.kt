@@ -1,4 +1,4 @@
-package com.example.foodapp.ui.activity.MealsDetail
+package com.example.foodapp.ui.activity.mealsdetail
 
 import android.content.Intent
 import android.net.Uri
@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.pojo.MealDetail
-import com.example.foodapp.data.pojo.RandomMealResponse
-import com.example.foodapp.ui.activity.Meal.TypeMealActivity
-import com.example.foodapp.ui.activity.Meal.TypeMealActivity.Companion.FROM_CATEGORY
+import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.ui.activity.meal.TypeMealActivity
+import com.example.foodapp.ui.activity.meal.TypeMealActivity.Companion.FROM_CATEGORY
 import kotlinx.android.synthetic.main.activity_meal_detail.*
 
 

@@ -1,11 +1,10 @@
 package com.example.foodapp.data.retrofit
 
 
-import com.example.foodapp.data.pojo.CategoryResponse
-import com.example.foodapp.data.pojo.FilterCategoryResponse
-import com.example.foodapp.data.pojo.RandomMealResponse
+import com.example.foodapp.data.data.CategoryResponse
+import com.example.foodapp.data.data.FilterCategoryResponse
+import com.example.foodapp.data.data.RandomMealResponse
 import io.reactivex.rxjava3.core.Single
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 

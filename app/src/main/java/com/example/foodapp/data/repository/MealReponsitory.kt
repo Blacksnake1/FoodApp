@@ -1,10 +1,10 @@
 package com.example.foodapp.data.repository
 
 import com.example.foodapp.data.local.MealLocal
-import com.example.foodapp.data.pojo.CategoryResponse
-import com.example.foodapp.data.pojo.FilterCategoryResponse
-import com.example.foodapp.data.pojo.MealDetail
-import com.example.foodapp.data.pojo.RandomMealResponse
+import com.example.foodapp.data.data.CategoryResponse
+import com.example.foodapp.data.data.FilterCategoryResponse
+import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.data.RandomMealResponse
 import com.example.foodapp.data.remote.MealRemote
 import io.reactivex.rxjava3.core.Single
 

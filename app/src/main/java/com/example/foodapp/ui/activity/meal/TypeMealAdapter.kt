@@ -1,4 +1,4 @@
-package com.example.foodapp.ui.activity.Meal
+package com.example.foodapp.ui.activity.meal
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.pojo.FilterCategoryModel
+import com.example.foodapp.data.data.FilterCategoryModel
 
 class TypeMealAdapter (
     var context: Context,

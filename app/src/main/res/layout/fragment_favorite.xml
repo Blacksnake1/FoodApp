@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragment.favorite.FavoriteFragment">
+    tools:context=".ui.fragment.favorite.FavoriteFragment"
+    android:layout_gravity="center">
 
     <TextView
         android:id="@+id/tv_fav_empty"
@@ -28,6 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

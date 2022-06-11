@@ -3,8 +3,8 @@ package com.example.foodapp.ui.fragment.home
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.foodapp.data.pojo.CategoryResponse
-import com.example.foodapp.data.pojo.RandomMealResponse
+import com.example.foodapp.data.data.CategoryResponse
+import com.example.foodapp.data.data.RandomMealResponse
 import com.example.foodapp.data.repository.MealReponsitory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver

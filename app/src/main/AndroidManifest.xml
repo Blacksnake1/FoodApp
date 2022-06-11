@@ -14,10 +14,10 @@
         android:theme="@style/Theme.FoodApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.activity.Meal.TypeMealActivity"
+            android:name=".ui.activity.meal.TypeMealActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.MealsDetail.MealDetailActivity"
+            android:name=".ui.activity.mealsdetail.MealDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.HomeActivity"

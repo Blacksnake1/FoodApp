@@ -1,17 +1,15 @@
-package com.example.foodapp.ui.activity.Meal
+package com.example.foodapp.ui.activity.meal
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.foodapp.R
-import com.example.foodapp.data.pojo.FilterCategoryModel
-import com.example.foodapp.ui.activity.MealsDetail.MealDetailActivity
+import com.example.foodapp.data.data.FilterCategoryModel
+import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import com.example.foodapp.ui.fragment.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_meal_by_category.*
 

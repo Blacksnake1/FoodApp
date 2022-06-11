@@ -1,8 +1,8 @@
-package com.example.foodapp.ui.activity.Meal
+package com.example.foodapp.ui.activity.meal
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.foodapp.data.pojo.FilterCategoryResponse
+import com.example.foodapp.data.data.FilterCategoryResponse
 import com.example.foodapp.data.repository.MealReponsitory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver

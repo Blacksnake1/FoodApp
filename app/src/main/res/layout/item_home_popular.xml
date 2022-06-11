@@ -10,7 +10,7 @@
             android:id="@+id/img_popular_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@color/primary"/>
+            android:src="#81750A"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="15dp"
