@@ -11,6 +11,8 @@ import com.example.foodapp.R
 import com.example.foodapp.data.data.MealDetail
 import com.example.foodapp.ui.activity.meal.TypeMealActivity
 import com.example.foodapp.ui.activity.meal.TypeMealActivity.Companion.FROM_CATEGORY
+import com.example.foodapp.ui.fragment.favorite.FavoriteFragment
+import com.example.foodapp.ui.fragment.favorite.FavoriteFragment.Companion.FROM_FAVORITE
 import kotlinx.android.synthetic.main.activity_meal_detail.*
 
 
@@ -20,9 +22,12 @@ class MealDetailActivity : AppCompatActivity() {
     }
     var mealDetail: MealDetail? = null
     var mealID : String? = null
+    var favoriteID : String? = null
+
     private var isFavorite = false
 
     private var isFromHomeCategory = false
+    private  var isFromFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,17 @@ class MealDetailActivity : AppCompatActivity() {
         }else {
             updateData()
         }
+
+//        when {
+//           isFromHomeCategory ->  mealID?.let {
+//               viewmodel.getMealDetail(it)
+//           }
+//            isFromFavorite -> favoriteID?.let {
+//                viewmodel.getMealDetail(it)
+//            }
+//            else -> updateData()
+//
+//        }
     }
 
     private fun setupObserver() {
@@ -51,8 +67,13 @@ class MealDetailActivity : AppCompatActivity() {
 
     private fun initData() {
         mealDetail = intent.getSerializableExtra("RANDOM_MEAL") as MealDetail?
-        mealID = intent.getStringExtra(TypeMealActivity.MEAL_ID)
+
+        mealID = intent.getStringExtra(TypeMealActivity.TYPE_MEAL_ID)
         isFromHomeCategory = intent.getBooleanExtra(FROM_CATEGORY,false)
+
+        favoriteID = intent.getStringExtra(FavoriteFragment.FAVORITE_ID)
+        isFromFavorite = intent.getBooleanExtra(FROM_FAVORITE,false)
+
 //        mealDetail?.let {
 //            isFavorite = viewmodel.isFavoriteMeal(it)
 //        }

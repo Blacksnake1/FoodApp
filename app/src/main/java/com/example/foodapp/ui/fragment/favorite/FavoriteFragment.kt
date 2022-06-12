@@ -1,5 +1,6 @@
 package com.example.foodapp.ui.fragment.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.foodapp.R
 import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
 class FavoriteFragment : Fragment() {
@@ -17,6 +19,12 @@ class FavoriteFragment : Fragment() {
     }
     private lateinit var favoriteAdapter : FavoriteAdapter
     var listFavorite = ArrayList<MealDetail>()
+
+    companion object{
+        const val FAVORITE_ID = "favorite"
+        const val FROM_FAVORITE = "fromfavorite"
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +57,7 @@ class FavoriteFragment : Fragment() {
         viewModel.mealList.observe(viewLifecycleOwner){
             listFavorite.clear()
             listFavorite.addAll(it)
-            favoriteAdapter?.notifyDataSetChanged()
+            favoriteAdapter.notifyDataSetChanged()
         }
 
 
@@ -65,6 +73,10 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun onClickitem(mealDetail: MealDetail) {
+        val intent = Intent(requireContext(),MealDetailActivity::class.java)
+        intent.putExtra(FAVORITE_ID,mealDetail.idMeal)
+        intent.putExtra(FROM_FAVORITE,true)
+        startActivity(intent)
 
     }
 

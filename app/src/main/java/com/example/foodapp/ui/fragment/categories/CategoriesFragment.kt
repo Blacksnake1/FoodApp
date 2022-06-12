@@ -11,7 +11,7 @@ import com.example.foodapp.R
 import com.example.foodapp.ui.activity.ActivityListener
 import com.example.foodapp.ui.fragment.home.HomeVM
 
-class CategoriesFragment : Fragment(), ActivityListener {
+class CategoriesFragment : Fragment() {
     private val viewModel by lazy {
         ViewModelProvider(this)[HomeVM::class.java]
 
@@ -29,8 +29,6 @@ class CategoriesFragment : Fragment(), ActivityListener {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onBottomTabChange(menuItem: MenuItem) {
 
-    }
 
 }
