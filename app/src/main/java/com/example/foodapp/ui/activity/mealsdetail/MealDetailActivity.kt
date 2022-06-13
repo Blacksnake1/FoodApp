@@ -13,6 +13,7 @@ import com.example.foodapp.ui.activity.meal.TypeMealActivity
 import com.example.foodapp.ui.activity.meal.TypeMealActivity.Companion.FROM_CATEGORY
 import com.example.foodapp.ui.fragment.favorite.FavoriteFragment
 import com.example.foodapp.ui.fragment.favorite.FavoriteFragment.Companion.FROM_FAVORITE
+import com.example.foodapp.ui.fragment.home.HomeFragment.Companion.RANDOM_MEAL
 import kotlinx.android.synthetic.main.activity_meal_detail.*
 
 
@@ -21,8 +22,10 @@ class MealDetailActivity : AppCompatActivity() {
         ViewModelProvider(this)[MealDetailVM::class.java]
     }
     var mealDetail: MealDetail? = null
+
     var mealID : String? = null
     var favoriteID : String? = null
+    var randomId : String? = null
 
     private var isFavorite = false
 
@@ -35,25 +38,25 @@ class MealDetailActivity : AppCompatActivity() {
         initData()
         setupView()
         setupObserver()
-
-        if (isFromHomeCategory){
-            mealID?.let {
-                viewmodel.getMealDetail(it)
-            }
-        }else {
-            updateData()
-        }
-
-//        when {
-//           isFromHomeCategory ->  mealID?.let {
-//               viewmodel.getMealDetail(it)
-//           }
-//            isFromFavorite -> favoriteID?.let {
+//
+//        if (isFromHomeCategory){
+//            mealID?.let {
 //                viewmodel.getMealDetail(it)
 //            }
-//            else -> updateData()
-//
+//        }else {
+//            updateData()
 //        }
+
+        when {
+           isFromHomeCategory ->  mealID?.let {
+               viewmodel.getMealDetail(it)
+           }
+            isFromFavorite -> favoriteID?.let {
+                viewmodel.getMealDetail(it)
+            }
+            else -> updateData()
+
+        }
     }
 
     private fun setupObserver() {
@@ -66,7 +69,8 @@ class MealDetailActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        mealDetail = intent.getSerializableExtra("RANDOM_MEAL") as MealDetail?
+        mealDetail
+        randomId= intent.getStringExtra(RANDOM_MEAL)
 
         mealID = intent.getStringExtra(TypeMealActivity.TYPE_MEAL_ID)
         isFromHomeCategory = intent.getBooleanExtra(FROM_CATEGORY,false)

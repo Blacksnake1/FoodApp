@@ -60,4 +60,4 @@ data class MealDetail(
     val strSource: String?,
     val strTags: Any?,
     val strYoutube: String?
-) : Serializable
+)

@@ -34,6 +34,7 @@ class HomeFragment : Fragment(), ActivityListener {
 
     companion object{
         const val CATEGORY_NAME = "category name"
+        const val RANDOM_MEAL   = "random meal"
     }
 
     private lateinit var binding: FragmentHomeBinding
@@ -72,7 +73,7 @@ class HomeFragment : Fragment(), ActivityListener {
                     scaleType = ImageView.ScaleType.CENTER_CROP
                     setOnClickListener {
                         val intent = Intent(requireActivity(), MealDetailActivity::class.java).apply {
-                            putExtra("RANDOM_MEAL",meal)
+                            putExtra(RANDOM_MEAL,meal.idMeal)
                         }
                         requireActivity().startActivity(intent)
                     }
@@ -88,7 +89,7 @@ class HomeFragment : Fragment(), ActivityListener {
         viewModel.categoryLiveData.observe(viewLifecycleOwner) {
             Log.e(".....>", "${it.categories.size}")
             listCategory.addAll(it.categories)
-            adapterCategory?.notifyDataSetChanged()
+            adapterCategory.notifyDataSetChanged()
         }
     }
 
