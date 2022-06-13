@@ -23,7 +23,7 @@ import com.example.foodapp.ui.activity.meal.TypeMealActivity
 import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
-dddđ
+
 class HomeFragment : Fragment(), ActivityListener {
     private val viewModel by lazy {
         ViewModelProvider(this)[HomeVM::class.java]
