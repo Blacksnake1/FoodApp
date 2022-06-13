@@ -29,8 +29,7 @@ class MealDetailActivity : AppCompatActivity() {
 
     private var isFavorite = false
 
-//    private var isFromHomeCategory = false
-//    private  var isFromFavorite = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +37,6 @@ class MealDetailActivity : AppCompatActivity() {
         initData()
         setupView()
         setupObserver()
-//
-//        if (isFromHomeCategory){
-//            mealID?.let {
-//                viewmodel.getMealDetail(it)
-//            }
-//        }else {
-//            updateData()
-//        }
 
         when {
            mealID != null -> viewmodel.getMealDetail(mealID!!)
