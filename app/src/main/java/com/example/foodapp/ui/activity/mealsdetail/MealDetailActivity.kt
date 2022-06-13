@@ -29,8 +29,8 @@ class MealDetailActivity : AppCompatActivity() {
 
     private var isFavorite = false
 
-    private var isFromHomeCategory = false
-    private  var isFromFavorite = false
+//    private var isFromHomeCategory = false
+//    private  var isFromFavorite = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,15 +48,14 @@ class MealDetailActivity : AppCompatActivity() {
 //        }
 
         when {
-           isFromHomeCategory ->  mealID?.let {
-               viewmodel.getMealDetail(it)
-           }
-            isFromFavorite -> favoriteID?.let {
-                viewmodel.getMealDetail(it)
-            }
-            else -> updateData()
+           mealID != null -> viewmodel.getMealDetail(mealID!!)
+
+            favoriteID != null -> viewmodel.getMealDetail(favoriteID!!)
+
+            else -> viewmodel.getMealDetail(randomId!!)
 
         }
+        updateData()
     }
 
     private fun setupObserver() {
@@ -69,18 +68,11 @@ class MealDetailActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        mealDetail
         randomId= intent.getStringExtra(RANDOM_MEAL)
 
         mealID = intent.getStringExtra(TypeMealActivity.TYPE_MEAL_ID)
-        isFromHomeCategory = intent.getBooleanExtra(FROM_CATEGORY,false)
 
         favoriteID = intent.getStringExtra(FavoriteFragment.FAVORITE_ID)
-        isFromFavorite = intent.getBooleanExtra(FROM_FAVORITE,false)
-
-//        mealDetail?.let {
-//            isFavorite = viewmodel.isFavoriteMeal(it)
-//        }
 
         }
 
