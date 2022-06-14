@@ -15,12 +15,12 @@ import kotlinx.android.synthetic.main.fragment_favorite.*
 
 class FavoriteFragment : Fragment() {
     private val viewModel by lazy {
-        ViewModelProvider(this)[ FavoriteVM::class.java]
+        ViewModelProvider(this)[FavoriteVM::class.java]
     }
-    private lateinit var favoriteAdapter : FavoriteAdapter
+    private lateinit var favoriteAdapter: FavoriteAdapter
     var listFavorite = ArrayList<MealDetail>()
 
-    companion object{
+    companion object {
         const val FAVORITE_ID = "favorite"
         const val FROM_FAVORITE = "fromfavorite"
     }
@@ -30,13 +30,12 @@ class FavoriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       return inflater.inflate(R.layout.fragment_favorite, container, false)
+        return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
-        setupEvent()
         setupObsever()
     }
 
@@ -49,12 +48,9 @@ class FavoriteFragment : Fragment() {
         setupRcv()
 
     }
-    private fun setupEvent() {
-
-    }
 
     private fun setupObsever() {
-        viewModel.mealList.observe(viewLifecycleOwner){
+        viewModel.mealList.observe(viewLifecycleOwner) {
             listFavorite.clear()
             listFavorite.addAll(it)
             favoriteAdapter.notifyDataSetChanged()
@@ -65,17 +61,17 @@ class FavoriteFragment : Fragment() {
 
 
     private fun setupRcv() {
-        favoriteAdapter = FavoriteAdapter(requireContext(), listFavorite,::onClickitem)
-        fav_rec_view. apply {
-            layoutManager = GridLayoutManager(requireContext(),2)
+        favoriteAdapter = FavoriteAdapter(requireContext(), listFavorite, ::onClickitem)
+        fav_rec_view.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = favoriteAdapter
         }
     }
 
     private fun onClickitem(mealDetail: MealDetail) {
-        val intent = Intent(requireContext(),MealDetailActivity::class.java)
-        intent.putExtra(FAVORITE_ID,mealDetail.idMeal)
-        intent.putExtra(FROM_FAVORITE,true)
+        val intent = Intent(requireContext(), MealDetailActivity::class.java)
+        intent.putExtra(FAVORITE_ID, mealDetail.idMeal)
+        intent.putExtra(FROM_FAVORITE, true)
         startActivity(intent)
 
     }

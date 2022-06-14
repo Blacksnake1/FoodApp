@@ -87,6 +87,7 @@ class MealDetailActivity : AppCompatActivity() {
             }
             updateUIButtonFavorite()
         }
+
     }
 
     private fun updateData() {
@@ -102,9 +103,14 @@ class MealDetailActivity : AppCompatActivity() {
 
 
     private fun watchYoutubeVideo(youtubeLink: String) {
+        /** Cách này dùng để mở link bằng trình duyệt điện thoại.
+         * val intent = Intent(Intent.ACTION_VIEW,Uri.parse(youtubeLink))
+         * startActivity(intent)
+         */
+
         val intent = Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse(youtubeLink)
             setPackage("com.google.android.youtube")
+            data = Uri.parse(youtubeLink)
         }
         startActivity(intent)
     }

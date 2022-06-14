@@ -29,7 +29,7 @@ class HomeFragment : Fragment(), ActivityListener {
         ViewModelProvider(this)[HomeVM::class.java]
     }
 
-    private lateinit var adapterCategory: HomeAdapter
+    private lateinit var homeAdapter: HomeAdapter
     var listCategory = ArrayList<CategoryModel>()
 
     companion object{
@@ -89,7 +89,7 @@ class HomeFragment : Fragment(), ActivityListener {
         viewModel.categoryLiveData.observe(viewLifecycleOwner) {
             Log.e(".....>", "${it.categories.size}")
             listCategory.addAll(it.categories)
-            adapterCategory.notifyDataSetChanged()
+            homeAdapter.notifyDataSetChanged()
         }
     }
 
@@ -110,17 +110,17 @@ class HomeFragment : Fragment(), ActivityListener {
     }
 
     private fun setupRcvCategory() {
-        adapterCategory = HomeAdapter(requireContext(), listCategory, ::onClickItemCategory)
+        homeAdapter = HomeAdapter(requireContext(), listCategory, ::onClickItemCategory)
         binding.rcvCategories.apply {
             layoutManager = GridLayoutManager(requireContext(), 3)
-            adapter = adapterCategory
+            adapter = homeAdapter
         }
     }
 
     private fun onClickItemCategory(categoryModel: CategoryModel) {
         Toast.makeText(requireContext(), categoryModel.strCategory, Toast.LENGTH_SHORT).show()
 
-        var intent = Intent(requireContext(),TypeMealActivity::class.java)
+        val intent = Intent(requireContext(),TypeMealActivity::class.java)
         intent.putExtra(CATEGORY_NAME,categoryModel.strCategory)
         startActivity(intent)
 
