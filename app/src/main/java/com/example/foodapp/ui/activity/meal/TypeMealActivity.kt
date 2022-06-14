@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.foodapp.R
 import com.example.foodapp.data.data.FilterCategoryModel
 import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
+import com.example.foodapp.ui.fragment.categories.CategoriesFragment
 import com.example.foodapp.ui.fragment.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_meal_by_category.*
 
@@ -18,9 +19,11 @@ class TypeMealActivity : AppCompatActivity() {
         ViewModelProvider(this)[TypeMealVM::class.java]
     }
     var listMeal = mutableListOf<FilterCategoryModel>()
-    var adapterMeal : TypeMealAdapter? = null
+    var adapterMeal: TypeMealAdapter? = null
     var type = ""
-    companion object{
+    var categorytype= ""
+
+    companion object {
         const val TYPE_MEAL_ID = "mealid"
         const val FROM_CATEGORY = "category"
     }
@@ -29,22 +32,29 @@ class TypeMealActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_by_category)
-        setupUI()
+        initData()
         setupObserver()
         setupEvent()
 
     }
 
-    private fun setupUI() {
+    private fun initData() {
         type = intent.getStringExtra(HomeFragment.CATEGORY_NAME).toString()
+        categorytype = intent.getStringExtra(CategoriesFragment.CATEGORY_NAME).toString()
+        when {
+            type != null -> viewModel.getTypeMeal(type)
+
+            categorytype != null -> viewModel.getTypeMeal(categorytype)
+
+        }
         setupRcvMeal()
-        viewModel.getTypeMeal(type)
+
 
 
     }
 
     private fun setupObserver() {
-        viewModel.typeMealLiveData.observe(this){
+        viewModel.typeMealLiveData.observe(this) {
             it.meals?.let {
                 listMeal.addAll(it)
                 adapterMeal?.notifyDataSetChanged()
@@ -60,19 +70,20 @@ class TypeMealActivity : AppCompatActivity() {
             onBackPressed()
         }
     }
+
     private fun setupRcvMeal() {
-        adapterMeal = TypeMealAdapter(this,listMeal,::onClickItemMeal)
+        adapterMeal = TypeMealAdapter(this, listMeal, ::onClickItemMeal)
         rcv_meal_by_category.apply {
-            layoutManager = GridLayoutManager(context,2)
+            layoutManager = GridLayoutManager(context, 2)
             adapter = adapterMeal
         }
     }
 
     private fun onClickItemMeal(filterCategoryModel: FilterCategoryModel) {
-        Toast.makeText(this,filterCategoryModel.strMeal,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, filterCategoryModel.strMeal, Toast.LENGTH_SHORT).show()
         val intent = Intent(this, MealDetailActivity::class.java)
-        intent.putExtra(TYPE_MEAL_ID,filterCategoryModel.idMeal)
-        intent.putExtra(FROM_CATEGORY , true)
+        intent.putExtra(TYPE_MEAL_ID, filterCategoryModel.idMeal)
+        intent.putExtra(FROM_CATEGORY, true)
         startActivity(intent)
 
     }

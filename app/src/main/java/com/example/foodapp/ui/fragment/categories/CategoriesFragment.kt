@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.foodapp.data.data.CategoryModel
 import com.example.foodapp.databinding.FragmentCategoriesBinding
+import com.example.foodapp.ui.activity.meal.TypeMealActivity
 import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import com.example.foodapp.ui.fragment.home.HomeAdapter
 import com.example.foodapp.ui.fragment.home.HomeVM
@@ -77,7 +78,7 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun onClickItem(categoryModel: CategoryModel) {
-        val intent = Intent(requireContext(),MealDetailActivity::class.java)
+        val intent = Intent(requireContext(),TypeMealActivity::class.java)
         intent.putExtra(CATEGORY_NAME,categoryModel.strCategory)
         startActivity(intent)
 

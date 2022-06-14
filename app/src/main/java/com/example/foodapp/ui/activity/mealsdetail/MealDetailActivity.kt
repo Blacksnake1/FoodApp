@@ -23,12 +23,11 @@ class MealDetailActivity : AppCompatActivity() {
     }
     var mealDetail: MealDetail? = null
 
-    var mealID : String? = null
-    var favoriteID : String? = null
-    var randomId : String? = null
+    var mealID: String? = null
+    var favoriteID: String? = null
+    var randomId: String? = null
 
     private var isFavorite = false
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,19 +37,11 @@ class MealDetailActivity : AppCompatActivity() {
         setupView()
         setupObserver()
 
-        when {
-           mealID != null -> viewmodel.getMealDetail(mealID!!)
 
-            favoriteID != null -> viewmodel.getMealDetail(favoriteID!!)
-
-            else -> viewmodel.getMealDetail(randomId!!)
-
-        }
-        updateData()
     }
 
     private fun setupObserver() {
-        viewmodel.mealDetailLiveData.observe(this){
+        viewmodel.mealDetailLiveData.observe(this) {
             mealDetail = it.meals.getOrNull(0)
             mealDetail?.let {
                 updateData()
@@ -59,13 +50,22 @@ class MealDetailActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        randomId= intent.getStringExtra(RANDOM_MEAL)
+        randomId = intent.getStringExtra(RANDOM_MEAL)
 
         mealID = intent.getStringExtra(TypeMealActivity.TYPE_MEAL_ID)
 
         favoriteID = intent.getStringExtra(FavoriteFragment.FAVORITE_ID)
 
+        when {
+            mealID != null -> viewmodel.getMealDetail(mealID!!)
+
+            favoriteID != null -> viewmodel.getMealDetail(favoriteID!!)
+
+            randomId != null -> viewmodel.getMealDetail(randomId!!)
+
         }
+        updateData()
+    }
 
     private fun setupView() {
         img_youtube.setOnClickListener {
@@ -80,10 +80,10 @@ class MealDetailActivity : AppCompatActivity() {
         fb_favorite.setOnClickListener {
             isFavorite = !isFavorite
             mealDetail?.let { it1 -> viewmodel.handleIsFavorite(isFavorite, it1) }
-            if(isFavorite){
-                Toast.makeText(this,"Favorite Saved", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this,"Favorite Unsave", Toast.LENGTH_SHORT).show()
+            if (isFavorite) {
+                Toast.makeText(this, "Favorite Saved", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Favorite Unsave", Toast.LENGTH_SHORT).show()
             }
             updateUIButtonFavorite()
         }
@@ -115,10 +115,10 @@ class MealDetailActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun updateUIButtonFavorite(){
-        if (isFavorite){
+    private fun updateUIButtonFavorite() {
+        if (isFavorite) {
             fb_favorite.setImageResource(R.drawable.ic_saved)
-        }else {
+        } else {
             fb_favorite.setImageResource(R.drawable.ic_baseline_save_24)
         }
     }
