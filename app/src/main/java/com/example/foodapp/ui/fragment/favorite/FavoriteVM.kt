@@ -32,5 +32,23 @@ class FavoriteVM (
 
     }
 
+    fun removeFavorite (meal: MealDetail){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                mealReponsitory.removeFavoriteMeal(meal)
+            }
+        }
+
+    }
+
+    fun insertFavorite (meal: MealDetail) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                mealReponsitory.saveFavoriteMeal(meal)
+            }
+
+        }
+    }
+
 
 }
