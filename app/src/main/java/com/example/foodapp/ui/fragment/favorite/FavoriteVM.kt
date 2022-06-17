@@ -3,7 +3,7 @@ package com.example.foodapp.ui.fragment.favorite
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.model.MealDetail
 import com.example.foodapp.data.repository.MealReponsitory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -3,8 +3,8 @@ package com.example.foodapp.ui.activity.mealsdetail
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.foodapp.data.data.MealDetail
-import com.example.foodapp.data.data.RandomMealResponse
+import com.example.foodapp.data.model.MealDetail
+import com.example.foodapp.data.model.RandomMealResponse
 import com.example.foodapp.data.repository.MealReponsitory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.SingleObserver

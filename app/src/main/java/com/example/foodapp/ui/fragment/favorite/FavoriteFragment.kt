@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodapp.R
-import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.model.MealDetail
 import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_favorite.*
@@ -22,6 +22,7 @@ class FavoriteFragment : Fragment() {
     }
     private lateinit var favoriteAdapter: FavoriteAdapter
     var listFavorite = ArrayList<MealDetail>()
+
 
     companion object {
         const val FAVORITE_ID = "favorite"
@@ -45,6 +46,8 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun setupEvent() {
+//        Kéo xoá item trong rcv
+
         val itemTouchHelper = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.RIGHT or ItemTouchHelper.LEFT

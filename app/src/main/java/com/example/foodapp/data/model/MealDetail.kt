@@ -1,8 +1,7 @@
-package com.example.foodapp.data.data
+package com.example.foodapp.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
 
 @Entity
 data class MealDetail(

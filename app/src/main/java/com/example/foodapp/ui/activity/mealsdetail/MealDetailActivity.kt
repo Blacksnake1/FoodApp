@@ -8,11 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.model.MealDetail
 import com.example.foodapp.ui.activity.meal.TypeMealActivity
-import com.example.foodapp.ui.activity.meal.TypeMealActivity.Companion.FROM_CATEGORY
 import com.example.foodapp.ui.fragment.favorite.FavoriteFragment
-import com.example.foodapp.ui.fragment.favorite.FavoriteFragment.Companion.FROM_FAVORITE
 import com.example.foodapp.ui.fragment.home.HomeFragment.Companion.RANDOM_MEAL
 import kotlinx.android.synthetic.main.activity_meal_detail.*
 

@@ -2,7 +2,7 @@ package com.example.foodapp.data.db
 
 import androidx.room.*
 import androidx.room.Dao
-import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.model.MealDetail
 
 @Dao
 interface MealDao {

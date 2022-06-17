@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.foodapp.R
-import com.example.foodapp.data.data.FilterCategoryModel
+import com.example.foodapp.data.model.FilterCategoryModel
 import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import com.example.foodapp.ui.fragment.categories.CategoriesFragment
 import com.example.foodapp.ui.fragment.home.HomeFragment

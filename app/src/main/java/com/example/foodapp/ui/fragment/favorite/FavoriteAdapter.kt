@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.model.MealDetail
 
 class FavoriteAdapter(
     var context: Context,

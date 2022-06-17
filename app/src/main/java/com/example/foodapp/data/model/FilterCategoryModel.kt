@@ -1,4 +1,4 @@
-package com.example.foodapp.data.data
+package com.example.foodapp.data.model
 
 data class FilterCategoryModel(
     val idMeal: String?,

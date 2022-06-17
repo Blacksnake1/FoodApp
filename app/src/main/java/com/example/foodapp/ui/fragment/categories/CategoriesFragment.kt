@@ -8,13 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.foodapp.data.data.CategoryModel
+import com.example.foodapp.data.model.CategoryModel
 import com.example.foodapp.databinding.FragmentCategoriesBinding
 import com.example.foodapp.ui.activity.meal.TypeMealActivity
-import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import com.example.foodapp.ui.fragment.home.HomeAdapter
 import com.example.foodapp.ui.fragment.home.HomeVM
-import kotlinx.android.synthetic.main.fragment_categories.*
 
 class CategoriesFragment : Fragment() {
     private val viewModel by lazy {
@@ -41,15 +39,15 @@ class CategoriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupUi()
-        setupObserver()
-        setupEvent()
+//        setupUi()
+//        setupObserver()
+//        setupEvent()
 
 
     }
 
     private fun setupUi() {
-        setupRcv()
+//        setupRcv()
     }
 
 
@@ -69,11 +67,11 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun setupRcv() {
-        categoriesAdapter = HomeAdapter(requireContext(),categoryList,::onClickItem)
-        binding.rcvFragmentCategories .apply {
-          layoutManager  = GridLayoutManager(requireContext(),2)
-            adapter = categoriesAdapter
-        }
+//        categoriesAdapter = HomeAdapter(requireContext(),categoryList,::onClickItem)
+//        binding.rcvFragmentCategories .apply {
+//          layoutManager  = GridLayoutManager(requireContext(),2)
+//            adapter = categoriesAdapter
+//        }
 
     }
 

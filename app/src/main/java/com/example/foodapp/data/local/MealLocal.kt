@@ -2,7 +2,7 @@ package com.example.foodapp.data.local
 
 import com.example.foodapp.FoodApplication
 import com.example.foodapp.data.db.MealDatabase
-import com.example.foodapp.data.data.MealDetail
+import com.example.foodapp.data.model.MealDetail
 
 class MealLocal {
     private val mealDatabase = MealDatabase.getInstance(FoodApplication.getInstance().applicationContext)

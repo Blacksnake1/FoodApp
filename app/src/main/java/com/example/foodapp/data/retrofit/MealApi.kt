@@ -1,9 +1,9 @@
 package com.example.foodapp.data.retrofit
 
 
-import com.example.foodapp.data.data.CategoryResponse
-import com.example.foodapp.data.data.FilterCategoryResponse
-import com.example.foodapp.data.data.RandomMealResponse
+import com.example.foodapp.data.model.CategoryResponse
+import com.example.foodapp.data.model.FilterCategoryResponse
+import com.example.foodapp.data.model.RandomMealResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

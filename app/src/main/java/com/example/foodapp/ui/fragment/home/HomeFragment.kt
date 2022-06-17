@@ -15,11 +15,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
-import com.example.foodapp.data.data.CategoryModel
+import com.example.foodapp.data.model.CategoryModel
 import com.example.foodapp.databinding.FragmentHomeBinding
 import com.example.foodapp.ui.activity.ActivityListener
 import com.example.foodapp.ui.activity.HomeActivity
 import com.example.foodapp.ui.activity.meal.TypeMealActivity
+import com.example.foodapp.ui.activity.meal.TypeMealVM
 import com.example.foodapp.ui.activity.mealsdetail.MealDetailActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -27,6 +28,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment(), ActivityListener {
     private val viewModel by lazy {
         ViewModelProvider(this)[HomeVM::class.java]
+    }
+    private val viewModelCate by lazy {
+        ViewModelProvider(this)[TypeMealVM::class.java]
     }
 
     private lateinit var homeAdapter: HomeAdapter
@@ -53,8 +57,6 @@ class HomeFragment : Fragment(), ActivityListener {
         setupObserver()
         setupEvent()
     }
-
-
 
     private fun setupUI() {
         actionViewFlipper()
