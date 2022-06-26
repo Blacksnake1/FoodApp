@@ -9,22 +9,25 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodapp.R
+
 import com.example.foodapp.data.model.CategoryModel
-import com.example.foodapp.data.model.FilterCategoryModel
 
 class HomeAdapter(
     var context: Context,
     var listCategory: MutableList<CategoryModel>,
     var onClickItem: (item:CategoryModel) -> Unit
 ): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    class ViewHolder ( itemView: View): RecyclerView.ViewHolder(itemView) {
+        var img_item = itemView.findViewById<ImageView>(R.id.img_category)
+        var tv_item  = itemView.findViewById<TextView>(R.id.tv_category)
 
-        val inflater = LayoutInflater.from(parent.context)
-        return val view = LayoutInflater.from(context).inflate(R.layout.item_home_categories,parent,false)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.item_home_categories,parent,false)
         return ViewHolder(view)
     }
 
-    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemCategory = listCategory. getOrNull(position)
         itemCategory?.strCategoryThumb.let {
@@ -39,27 +42,6 @@ class HomeAdapter(
     }
 
     override fun getItemCount(): Int = listCategory.size
-
-    inner class CategoryViewHolder ( itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind (item: String){
-            with(itemView){
-                var img_item = itemView.findViewById<ImageView>(R.id.img_category)
-                var tv_item  = itemView.findViewById<TextView>(R.id.tv_category)
-            }
-        }
-    }
-
-
-    enum class ViewType(val type: Int) {
-        CATEGORY(0),
-
-
-
-
-
-
-
-
 
 
 }
