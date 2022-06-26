@@ -12,6 +12,7 @@
             android:layout_height="match_parent"
             android:src="#81750A"/>
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_popular_item"
         android:layout_width="match_parent"
         android:layout_height="15dp"
         android:layout_marginTop="70dp"

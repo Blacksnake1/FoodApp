@@ -121,7 +121,6 @@ class HomeFragment : Fragment(), ActivityListener {
 
     private fun onClickItemCategory(categoryModel: CategoryModel) {
         Toast.makeText(requireContext(), categoryModel.strCategory, Toast.LENGTH_SHORT).show()
-
         val intent = Intent(requireContext(),TypeMealActivity::class.java)
         intent.putExtra(CATEGORY_NAME,categoryModel.strCategory)
         startActivity(intent)

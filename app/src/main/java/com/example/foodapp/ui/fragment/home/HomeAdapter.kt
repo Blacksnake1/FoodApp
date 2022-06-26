@@ -15,21 +15,25 @@ import com.example.foodapp.data.model.FilterCategoryModel
 class HomeAdapter(
     var context: Context,
     var listCategory: MutableList<CategoryModel>,
-
+    var listPopular: MutableList<FilterCategoryModel>,
     var onClickItem: (item:CategoryModel) -> Unit
 ): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
-
-    class ViewHolder ( itemView: View): RecyclerView.ViewHolder(itemView) {
-        var img_item = itemView.findViewById<ImageView>(R.id.img_category)
-        var tv_item  = itemView.findViewById<TextView>(R.id.tv_category)
-
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_home_categories,parent,false)
-        return ViewHolder(view)
+
+        val inflater = LayoutInflater.from(parent.context)
+        return when(viewType){
+            ViewType.CATEGORY.type -> {
+                val view = inflater.inflate(R.layout.item_home_categories, parent, false)
+                CategoryViewHolder(view)
             }
 
+            else -> {
+                val view = inflater.inflate(R.layout.item_home_popular, parent, false)
+                PopularViewHolder(view)
+            }
+        }
+
+    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemCategory = listCategory. getOrNull(position)
         itemCategory?.strCategoryThumb.let {
@@ -44,6 +48,35 @@ class HomeAdapter(
     }
 
     override fun getItemCount(): Int = listCategory.size
+
+    inner class CategoryViewHolder ( itemView: View): RecyclerView.ViewHolder(itemView) {
+        fun bind (item: String){
+            with(itemView){
+                var img_item = itemView.findViewById<ImageView>(R.id.img_category)
+                var tv_item  = itemView.findViewById<TextView>(R.id.tv_category)
+            }
+        }
+    }
+    inner class PopularViewHolder ( itemView: View): RecyclerView.ViewHolder(itemView) {
+        fun bind (item: String){
+            with(itemView){
+                var img_item_popular = itemView.findViewById<ImageView>(R.id.img_popular_item)
+                var txt_item_popular  = itemView.findViewById<TextView>(R.id.txt_popular_item)
+            }
+        }
+    }
+
+    enum class ViewType(val type: Int) {
+        CATEGORY(0),
+        POPULAR(1)
+    }
+
+
+
+
+
+
+
 
 
 }

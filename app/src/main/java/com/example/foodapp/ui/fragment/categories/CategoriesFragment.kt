@@ -39,15 +39,15 @@ class CategoriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        setupUi()
-//        setupObserver()
-//        setupEvent()
+        setupUi()
+        setupObserver()
+        setupEvent()
 
 
     }
 
     private fun setupUi() {
-//        setupRcv()
+        setupRcv()
     }
 
 
@@ -67,11 +67,11 @@ class CategoriesFragment : Fragment() {
     }
 
     private fun setupRcv() {
-//        categoriesAdapter = HomeAdapter(requireContext(),categoryList,::onClickItem)
-//        binding.rcvFragmentCategories .apply {
-//          layoutManager  = GridLayoutManager(requireContext(),2)
-//            adapter = categoriesAdapter
-//        }
+        categoriesAdapter = HomeAdapter(requireContext(),categoryList,::onClickItem)
+        binding.rcvFragmentCategories .apply {
+          layoutManager  = GridLayoutManager(requireContext(),2)
+            adapter = categoriesAdapter
+        }
 
     }
 
