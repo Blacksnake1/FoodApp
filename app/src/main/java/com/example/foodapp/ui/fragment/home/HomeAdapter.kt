@@ -20,14 +20,9 @@ class HomeAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val inflater = LayoutInflater.from(parent.context)
-        return
-            ViewType.CATEGORY.type -> {
-                val view = inflater.inflate(R.layout.item_home_categories, parent, false)
-                CategoryViewHolder(view)
-
-
-
-        }
+        return val view = LayoutInflater.from(context).inflate(R.layout.item_home_categories,parent,false)
+        return ViewHolder(view)
+    }
 
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
