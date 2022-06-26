@@ -15,22 +15,18 @@ import com.example.foodapp.data.model.FilterCategoryModel
 class HomeAdapter(
     var context: Context,
     var listCategory: MutableList<CategoryModel>,
-    var listPopular: MutableList<FilterCategoryModel>,
     var onClickItem: (item:CategoryModel) -> Unit
 ): RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val inflater = LayoutInflater.from(parent.context)
-        return when(viewType){
+        return
             ViewType.CATEGORY.type -> {
                 val view = inflater.inflate(R.layout.item_home_categories, parent, false)
                 CategoryViewHolder(view)
-            }
 
-            else -> {
-                val view = inflater.inflate(R.layout.item_home_popular, parent, false)
-                PopularViewHolder(view)
-            }
+
+
         }
 
     }
@@ -57,19 +53,11 @@ class HomeAdapter(
             }
         }
     }
-    inner class PopularViewHolder ( itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind (item: String){
-            with(itemView){
-                var img_item_popular = itemView.findViewById<ImageView>(R.id.img_popular_item)
-                var txt_item_popular  = itemView.findViewById<TextView>(R.id.txt_popular_item)
-            }
-        }
-    }
+
 
     enum class ViewType(val type: Int) {
         CATEGORY(0),
-        POPULAR(1)
-    }
+
 
 
 
